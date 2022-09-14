@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjs@11.2.1/lib/browser/math.min.js"></script>
+<script>
+    function addLog(msg){
+        var ul = document.getElementById("log")
+        var li= document.createElement("li")
+        var msg_text_node=document.createTextNode(msg)
+        li.appendChild(msg_text_node)
+
+        ul.appendChild(li)
+    }
+
+    function calculate(){
+    expression = document.getElementById("expression").value;
+    console.log(expression);
+    if(expression){
+        try {
+            ans=eval(expression)
+            document.getElementById("expression").value=ans;
+            addLog(expression+"="+ans)
+        } catch (error) {
+           console.log("Bad expression") 
+           addLog(expression +" is bad. Please fix it.")
+        }
+        
+}
+    
+}
+
+function math_calculate(){
+    expression = document.getElementById("expression").value;
+    console.log(expression);
+    if(expression){
+        try {
+            ans=math.evaluate(expression)
+            document.getElementById("expression").value=ans;
+            addLog(expression+"="+ans)
+        } catch (error) {
+           console.log("Bad expression") 
+           addLog(expression +" is bad. Please fix it.")
+        }
+        
+}
+    
+}
+
+function initialize_app(){
+    calculate_button=document.getElementById("calculate")
+    calculate_button.addEventListener("click",math_calculate)
+}
+</script>
+
+
+</head>
+<body onload="initialize_app()">
+    <div class="container">
+        <div class="row">
+            <div class="col"></div>
+            <div class="col">
+                <input id="expression" placeholder="3*5" type="input" class="form-control">
+                <!-- <button id="calculate" onclick="math_calculate()" class="btn btn-primary">Calculate</button> -->
+                <button id="calculate" class="btn btn-primary">Calculate</button>
+                <h3>Log</h3>
+                <ul id="log">
+
+                </ul>
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
+</body>
+<!-- <script>initialize_app()</script> -->
+</html>
