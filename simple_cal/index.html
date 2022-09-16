@@ -59,6 +59,13 @@ function initialize_app(){
     calculate_button=document.getElementById("calculate")
     calculate_button.addEventListener("click",math_calculate)
 }
+
+function input_number(v){
+    expression=document.getElementById("expression").value;
+    expression=expression+v;
+    document.getElementById("expression").value=expression;
+}
+
 </script>
 
 
@@ -70,11 +77,56 @@ function initialize_app(){
             <div class="col">
                 <input id="expression" placeholder="3*5" type="input" class="form-control">
                 <!-- <button id="calculate" onclick="math_calculate()" class="btn btn-primary">Calculate</button> -->
-                <button id="calculate" class="btn btn-primary">Calculate</button>
-                <h3>Log</h3>
-                <ul id="log">
+                
+                
+            </div>
+            <div class="col"></div>
+        </div>
 
-                </ul>
+        <div class="row">
+            <div class="col"></div>
+            <div class="col">
+               
+                <button class="btn btn-primary" onclick="input_number('7')">7</button>
+                <button class="btn btn-primary" onclick="input_number('8')">8</button>
+                <button class="btn btn-primary" onclick="input_number('9')">9</button>
+                <button class="btn btn-warning" onclick="input_number('/')">/</button>
+            </div>
+            <div class="col"></div>
+        </div>
+        
+        <div class="row">
+            <div class="col"></div>
+            <div class="col">
+               
+                <button class="btn btn-primary" onclick="input_number('4')">4</button>
+                <button class="btn btn-primary" onclick="input_number('5')">5</button>
+                <button class="btn btn-primary" onclick="input_number('6')">6</button>
+                <button class="btn btn-warning" onclick="input_number('*')">*</button>
+            </div>
+            <div class="col"></div>
+        </div>
+
+        <div class="row">
+            <div class="col"></div>
+            <div class="col">
+               
+                <button class="btn btn-primary" onclick="input_number('1')">1</button>
+                <button class="btn btn-primary" onclick="input_number('2')">2</button>
+                <button class="btn btn-primary" onclick="input_number('3')">3</button>
+                <button class="btn btn-warning" onclick="input_number('-')">-</button>
+            </div>
+            <div class="col"></div>
+        </div>
+
+        <div class="row">
+            <div class="col"></div>
+            <div class="col">
+               
+                <button class="btn btn-primary" onclick="input_number('0')">0</button>
+                <button class="btn btn-primary" onclick="input_number('.')">.</button>
+                <button class="btn btn-success" id="calculate">=</button>
+                <button class="btn btn-warning" onclick="input_number('+')">+</button>
             </div>
             <div class="col"></div>
         </div>
