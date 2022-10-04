@@ -2,7 +2,11 @@
 // and enter that value below in order to use the app.
 // Note that it takes a couple of hours after creating your account before the keys
 // get activated.
+<<<<<<< HEAD
 var appid=weather-api-main/appid.txt
+=======
+var appid=""
+>>>>>>> 92799c7f4f40cfeb21e37247c3e4ec5a6c417eca
 Vue.component('city', {
     props: ['c'],
     data: function() {
